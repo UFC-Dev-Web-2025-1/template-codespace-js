@@ -13,6 +13,40 @@ Siga os passos abaixo para criar um ambiente de desenvolvimento ideal. Aproveite
 -   Dev Container: para configurar o container docker no CodeSpace
 -   Docker: ferramenta de contenerização
 
+## Passo 0 - Criar um app React com Next.js
+
+Vamos criar o app antes de outras configurações para não ter conflito entre arquivos e pastas. A criação de um app é bem simples. Execute o comando abaixo:
+
+```bash
+npx create-next-app .
+```
+
+Não esqueça do ponto no final. Ele indica que vamos criar na pasta que você está agora no terminal. Sem ele será criada uma hierarquia a mais nas estruturas de pastas.
+
+Você verá as seguintes opções:
+
+```bash
+Would you like to use TypeScript? No # Vamos focar em JS, mas você pode usar TS e prosseguir fazendo alguns ajustes no código e ferramentas.
+Would you like to use ESLint? No # Vamos instalar o SonaLint, mas pode igualmente fazer a instalação do ESLint. Verifique as configurações ideais para não sobrepô-las.
+Would you like to use Tailwind CSS? No # O foco da disciplina será no uso do MUI.
+Would you like your code inside a `src/` directory? Yes
+Would you like to use App Router? (recommended) Yes
+Would you like to use Turbopack for `next dev`?  Yes
+Would you like to customize the import alias (`@/*` by default)? No
+```
+
+Após confirmar as opções, o framework Next.js criou um app JavaScript ou TypeScript que usa a biblioteca React.
+
+Para rodar o servidor de desenvolvimento execute:
+
+```bash
+npm run dev
+```
+
+Abra [http://localhost:3000](http://localhost:3000) com seu browser para ver o resultado.
+
+Você pode iniciar editando a página `app/page.js`. Perceba que a página atualiza automaticamente (Fast Refresh) e permite que você já veja o resultado das alterações na tela. Teste!
+
 ## Passo 1 - Criar CodeSpace
 
 No Github, no seu repositório criado, abra com Codespace. Navegue no VSCode para se familiarizar com suas funcionalidades e ambiente.
@@ -342,6 +376,10 @@ Use scripts personalizados no package.json para tarefas recorrentes, como:
 }
 ```
 
+### ⚡ npx: executar sem instalar
+
+O comando npx permite executar um pacote diretamente do repositório NPM, sem precisar instalá-lo globalmente. Exemplo: `npx eslint . `.
+
 ## 🎨 Prettier
 
 O Prettier é um formatador de código automático. Ele garante consistência no estilo de escrita, padronizando indentação, aspas, ponto e vírgula e outros detalhes.
@@ -349,3 +387,42 @@ O Prettier é um formatador de código automático. Ele garante consistência no
 ## 🧪 SonarLint
 
 O SonarLint detecta bugs, vulnerabilidades e code smells diretamente no editor. Com o arquivo aberto, o SonarLint analisa o código automaticamente e destaca problemas com sugestões de correção. É possível integrar com o [SonarQube](https://www.sonarsource.com/open-source-editions/sonarqube-community-edition/) para regras centralizadas. Com SonarQube é possível definir limites, por exemplo, da cobertura de testes unitários no código.
+
+## ⚛️ React
+
+O **React** é uma biblioteca JavaScript para construção de interfaces de usuário, mantida pelo Meta (Facebook). Ele é baseado em componentes reutilizáveis e no conceito de _estado_ e _propriedades_.
+
+### 🤔 Por que o React é uma biblioteca e não um framework?
+
+O **React** é classificado como **biblioteca** porque ele **foca exclusivamente na camada de visualização (View)** da aplicação. Ele resolve o problema de criar interfaces de usuário reativas, mas **não impõe uma estrutura completa ou regras rígidas sobre como organizar seu projeto**.
+
+#### Características de biblioteca:
+
+-   Você **escolhe** como lidar com rotas, requisições HTTP, gerenciamento de estado, etc.
+-   Ele é **flexível e modular**, podendo ser combinado com outras bibliotecas como Redux, React Router, Axios, entre outras.
+-   **Você controla o fluxo da aplicação** — ou seja, o React é chamado por você, não o contrário.
+
+#### Já um framework...
+
+...como **Next.js**, **Angular** ou **Vue com Nuxt**, tende a:
+
+-   Fornecer uma **estrutura completa** com roteamento, compilação, autenticação, etc.
+-   **Controlar o fluxo da aplicação**, chamando o seu código em pontos específicos (inversão de controle).
+-   Ter uma abordagem mais **rígida**, com padrões definidos para estrutura e funcionamento.
+
+## 🌐 Next.js
+
+O Next.js é um framework baseado em React para desenvolvimento web moderno. Ele oferece funcionalidades como renderização do lado do servidor (SSR), Geração Estática (SSG), rotas automáticas, suporte a API Routes e muito mais. O comando [`npx create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). inicializa um projeto com rotas baseadas em arquivos (pages/), suporte a CSS/SCSS, imagens otimizadas e estrutura para API backend.
+
+...como **Next.js**, **Angular** ou **Vue com Nuxt**, tende a:
+
+-   Fornecer uma **estrutura completa** com roteamento, compilação, autenticação, etc.
+-   **Controlar o fluxo da aplicação**, chamando o seu código em pontos específicos (inversão de controle).
+-   Ter uma abordagem mais **opinionada**, com padrões definidos para estrutura e funcionamento.
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with
+
+Para aprender mais sobre Next.js, veja:
+
+-   [Next.js Documentation](https://nextjs.org/docs) - funcionalidades Next.js e API.
+-   [Learn Next.js](https://nextjs.org/learn) - um tutorial interativo Next.js.
