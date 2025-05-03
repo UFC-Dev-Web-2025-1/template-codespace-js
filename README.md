@@ -60,6 +60,41 @@ Configure o Zsh como terminal padrão, adicionando o seguinte trecho no arquivo 
 
 Salve o arquivo e faça novamente o build do container digitando digitar "codespaces: rebuild container" na paleta de comandos do VSCode. Veja as alterações no terminal. 
 
+## Passo 4 - Verificar ortografia é necessário!
+Vamos agora adicionar validadores de ortografia para inglês e para português. Erros de língua costumam ser distratores da leitura.
+
+Adicione no devcontainer.json os seguintes trechos:
+```json
+"customizations": {
+        "vscode": {
+            // Adicione a extensão pelo ID
+            "extensions": [
+                "streetsidesoftware.code-spell-checker",
+                "streetsidesoftware.code-spell-checker-portuguese-brazilian"
+            ]
+        }
+}
+```
+
+e
+
+```json
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "cSpell.language": "en,pt,pt_BR",
+                "cSpell.ignoreWords": [
+                    "brazilian",
+                    "devcontainers"
+                ]
+            }
+        }
+    }
+```
+
+Observe que você já possui os objetos pais: customizations, vscode e settings, logo o que deve ser adicionado é só a propriedade interna. No trecho acima adicionamos duas palavras no nosso dicionário interno para não serem reconhecidas com erro de escrita. Você pode adicionar mais.
+
+Novamente faça o build do seu container e veja o resultado. Veja também as extensões instaladas (Ctrl+Shift+X).
 
 # 📋 Conceitos
 
@@ -150,3 +185,8 @@ Com WSL, pode ser instalado no Ubuntu do Windows Terminal. Oferece temas, plugin
 Coleção de complementos adicionais ao ohmyzsh: O [zsh-completions](https://github.com/zsh-users/zsh-completions) é uma coleção de complementos adicionais para o Zsh (Z Shell), projetada para melhorar a experiência de autocompletar comandos e opções no terminal. 
 
 [Fast Syntax Highlighting](https://github.com/zdharma/fast-syntax-highlighting) é um plugin para o shell Zsh que fornece realce de sintaxe (syntax highlighting) em tempo real para comandos digitados no terminal. Ele ajuda os usuários a identificar erros, comandos válidos e argumentos enquanto escrevem.
+
+
+## 📝 Spell-checker
+
+O *spell-checker* é um verificador ortográfico que ajuda a identificar erros de escrita em códigos e comentários. No VS Code, use o plugin **Code Spell Checker**, disponível na extensão `streetsidesoftware.code-spell-checker`, com suporte a múltiplos idiomas como inglês e português (pt-BR). É necessário instalar tanto o plugin quanto o dicionário da língua.
