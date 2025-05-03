@@ -426,3 +426,17 @@ Para aprender mais sobre Next.js, veja:
 
 -   [Next.js Documentation](https://nextjs.org/docs) - funcionalidades Next.js e API.
 -   [Learn Next.js](https://nextjs.org/learn) - um tutorial interativo Next.js.
+
+## ⚙️ Power Toys
+
+[PowerToys](https://apps.microsoft.com/detail/xp89dcgq3k6vld?hl=en-US&gl=BR) é um conjunto de ferramentas gratuitas da Microsoft projetadas para melhorar a produtividade e personalização no Windows. Alguns recursos do Power Toys são:
+
+Algumas ferramentas do PowerToys:
+
+-   Seletor de Cores: Um seletor de cores universal que exibe os valores RGB e HEX de qualquer ponto da tela. `win + Shift + c`
+-   Localizar Meu Mouse: Criar um foco no mouse `Ctrl Ctrl`
+-   Espiada: Extensões no Explorador de Arquivos: `Ctrl + space`
+-   Miniaturas de arquivos: permite visualizar arquivos como svg e md no Explorador de arquivos.
+-   Extrator de Texto: Extrai texto de imagens ou outras fontes visuais usando OCR. `win + Shift + t`
+-   PowerToys Run: Um lançador rápido de aplicativos e comandos, semelhante ao Spotlight no macOS. `alt + space`
+-   Colar avançado: permite colocar o conteúdo da área de transferência em qualquer formato necessário. `win + Shift + v`
