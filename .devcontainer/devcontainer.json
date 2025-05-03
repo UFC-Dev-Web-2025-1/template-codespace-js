@@ -1,13 +1,27 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-	"name": "Untitled Node.js project",
+	"name": "Template de container para JS | React | Node",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
-"remoteUser": "node",
-"features": {
-	"ghcr.io/devcontainers/features/common-utils:2": {},
-	"ghcr.io/devcontainers/features/github-cli:1": {},
-	"ghcr.io/devcontainers-extra/features/zsh-plugins:0": {}
-}
+	  // Configurar propriedades específicas da ferramenta. Mais informações: https://containers.dev/supporting.
+	"customizations": {
+        // Configura propriedades específicas para o VS Code.
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            }
+        }
+    },
+	"remoteUser": "node",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+				"installZsh": true, // Adiciona o Zsh ao contêiner
+				"installOhMyZsh": true
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+				"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions"
+		},
+	}
 }

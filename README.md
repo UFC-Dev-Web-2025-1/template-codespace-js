@@ -29,6 +29,37 @@ As sugestões de features são:
 
 Ao finalizar o processo você passa a ver dois novos arquivos: devcontainer.json e Dockerfile. No CodeSpace, pressione "Ctrl+Shift+P" para exibir a "Paleta de Comandos" e comece a digitar "codespaces: rebuild container" para ver o resultado das alterações.
 
+## Passo 3 - Customização do container com terminal Zsh
+Altere o arquivo devcontainer.json na parte de features para especificar as instalações do terminal Zsh e seu personalizador Oh My Zsh. O uso do Zsh tem algumas vanga
+
+```json
+features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true, // Adiciona o Zsh ao contêiner
+            "installOhMyZsh": true
+        },
+        "ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+            "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions"
+        },
+
+```
+
+Configure o Zsh como terminal padrão, adicionando o seguinte trecho no arquivo devcontainer.json:
+
+```json
+  // Configurar propriedades específicas da ferramenta. Mais informações: https://containers.dev/supporting.
+    "customizations": {
+        // Configura propriedades específicas para o VS Code.
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            }
+        }
+    }
+```
+
+Salve o arquivo e faça novamente o build do container digitando digitar "codespaces: rebuild container" na paleta de comandos do VSCode. Veja as alterações no terminal. 
+
 
 # 📋 Conceitos
 
@@ -86,3 +117,36 @@ Um exemplo com uma lista de objetos:
   { "nome": "Maria", "idade": 28 }
 ]
 ```
+
+## 💻 Zsh (Z Shell)
+
+Zsh é um interpretador de comandos (shell) para sistemas Unix/Linux, compatível com o Bash, mas com **funcionalidades mais avançadas**, como:
+
+- **Autocompletar inteligente** com sugestões e correções automáticas.
+- **Suporte a plugins e temas** via frameworks como [Oh My Zsh](https://ohmyz.sh/).
+- **Histórico compartilhado entre abas/terminais**.
+- **Prompt personalizável** com informações de Git, status de comando anterior, entre outros.
+
+Zsh é especialmente útil para desenvolvedores, pois acelera a produtividade no terminal com recursos como:
+
+```bash
+# Autocompleta comandos e nomes de arquivos
+cd D<tab>   # completa para 'Documents' ou diretório equivalente
+
+# Sugestão de comandos do histórico
+git status     # ao digitar `git`, ele sugere o uso anterior
+```
+
+## ✨ [oh my zsh](https://ohmyz.sh/)
+Oh My Zsh é uma estrutura open source para personalizar o shell Zsh, amplamente usada em Linux e macOS. Zsh é um shell projetado para uso interativo, semelhante ao Bash, usado em sistemas Unix/Linux e macOS.
+
+Com WSL, pode ser instalado no Ubuntu do Windows Terminal. Oferece temas, plugins e atalhos para melhorar a produtividade e a aparência do terminal. Fácil de instalar, é popular entre desenvolvedores por sua flexibilidade e vasta comunidade. Suas funcionalidades são:
+* Autocompletar e correção de comandos
+* Temas e cores
+* Gerência avançada do histórico de comandos
+* Variedade enorme de plugins, comunidade ativa.
+
+### 🔌 Plugins e complementos:
+Coleção de complementos adicionais ao ohmyzsh: O [zsh-completions](https://github.com/zsh-users/zsh-completions) é uma coleção de complementos adicionais para o Zsh (Z Shell), projetada para melhorar a experiência de autocompletar comandos e opções no terminal. 
+
+[Fast Syntax Highlighting](https://github.com/zdharma/fast-syntax-highlighting) é um plugin para o shell Zsh que fornece realce de sintaxe (syntax highlighting) em tempo real para comandos digitados no terminal. Ele ajuda os usuários a identificar erros, comandos válidos e argumentos enquanto escrevem.
