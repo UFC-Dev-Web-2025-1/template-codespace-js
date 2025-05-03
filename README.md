@@ -96,6 +96,37 @@ Observe que você já possui os objetos pais: customizations, vscode e settings,
 
 Novamente faça o build do seu container e veja o resultado. Veja também as extensões instaladas (Ctrl+Shift+X).
 
+## Passo 5 - Configurando git, docker e ferramentas
+
+Vamos começar adicionando um arquivo [.gitignore](https://git-scm.com/docs/gitignore), que possui nele pastas e arquivos que não precisam ser versionados no git, nem precisam subir para o repositório no GitHub.
+
+Copie o [arquivo modelo](https://github.com/facebook/react/blob/main/.gitignore), feito pelo Facebook, e adicione na raiz do projeto. 
+
+Agora vamos adicionar algumas features e plugins. Adicione no devcontainer.json os seguintes trechos:
+```json
+"customizations": {
+        "vscode": {
+            // Adicione a extensão pelo ID
+        "extensions": [
+            "ms-azuretools.vscode-docker", // Visualização de containers, imagens, volumes e integração com Docker Compose.
+            "ms-vscode-remote.remote-containers", // Abre o projeto em um ambiente isolado, com todas as dependências já instaladas. https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
+            "mhutchie.git-graph", // Exibe o histórico de commits do Git em um gráfico visual e interativo.
+            "eamodio.gitlens", // Melhora o suporte ao Git no VS Code com anotações, histórico de linha, comparações e mais.
+            "github.vscode-github-actions" // Suporte a workflows do GitHub Actions.
+        ]
+        }
+}
+```
+
+e
+
+```json
+features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {}, // Instala o GitHub CLI (gh), permitindo interações com o GitHub via terminal (ex: criar PRs, issues, clonar repositórios, gerenciar workflows).
+}
+```
+
+
 # 📋 Conceitos
 
 ## 🐳 Docker
@@ -190,3 +221,15 @@ Coleção de complementos adicionais ao ohmyzsh: O [zsh-completions](https://git
 ## 📝 Spell-checker
 
 O *spell-checker* é um verificador ortográfico que ajuda a identificar erros de escrita em códigos e comentários. No VS Code, use o plugin **Code Spell Checker**, disponível na extensão `streetsidesoftware.code-spell-checker`, com suporte a múltiplos idiomas como inglês e português (pt-BR). É necessário instalar tanto o plugin quanto o dicionário da língua.
+
+
+## 🐙 GitHub CLI (gh)
+Use o GitHub CLI para interagir com repositórios remotos:
+```bash
+gh auth login                   # Faz login na sua conta do GitHub
+gh repo create                  # Cria um novo repositório no GitHub
+gh repo clone usuario/repositorio # Clona um repositório
+gh pr create                    # Cria um pull request
+gh issue list                   # Lista issues do repositório
+
+```
